@@ -28,7 +28,7 @@ def render_description(selftext, link):
 def post_to_rss(post):
     return rss.RSSItem(
         title=post.title,
-        link=post.permalink,
+        link=f"https://old.reddit.com{post.permalink}",
         description=render_description(post.selftext, post.url),
         author=post.author.name,
         guid=post.id,
@@ -39,7 +39,7 @@ def post_to_rss(post):
 def top_rss(subreddit, r, limit=10):
     return rss.RSS2(
         title=f"Top /r/{subreddit} posts",
-        link=f"https://reddit.com/r/{subreddit}/top",
+        link=f"https://old.reddit.com/r/{subreddit}/top",
         description=f"Top {limit} posts from /r/{subreddit}",
         lastBuildDate=dt.datetime.utcnow(),
         items=[post_to_rss(post) for post in get_top(subreddit, reddit, limit)],
