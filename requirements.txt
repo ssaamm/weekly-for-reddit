@@ -1,4 +1,4 @@
-Flask==1.0.2
+Flask==2.3.2
 praw==6.0.0
 PyRSS2Gen==1.1
 Markdown==3.0.1
